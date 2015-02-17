@@ -1,0 +1,46 @@
+<%= form_for @shoe, :html => { :class => "form-horizontal shoe" } do |f| %>
+
+    <% if @shoe.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@shoe.errors.count, "error") %> prohibited this shoe from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @shoe.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'form-control' %>
+    </div>
+    <%= error_span(@shoe[:title]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, :class => 'form-control' %>
+    </div>
+    <%= error_span(@shoe[:description]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :Photo, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :image, :class => 'btn btn-primary' %>
+    </div>
+    <%= error_span(@shoe[:image]) %>
+  </div>
+  <br>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            shoes_path, :class => 'btn btn-default' %>
+
+<% end %>
