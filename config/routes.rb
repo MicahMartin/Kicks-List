@@ -1,7 +1,18 @@
 Rails.application.routes.draw do
+
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  authenticated :user do
+    root :to => 'user#show', as: "authenticated_root"
+  end
   resources :shoes
-  root :to => 'shoes#index'
+  get "profile" => 'user#show', :as => 'profile'
+  get "profile/edit" => 'user#edit', :as => 'editprofile'
+  get "users" => 'user#show', :as =>'profileb'
+  put "profile" => 'user#edit', :as => 'updateprofile'
+  get "home" => 'home#index', :as => 'home'
+
+  root :to => 'home#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

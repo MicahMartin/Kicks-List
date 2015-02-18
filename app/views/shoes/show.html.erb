@@ -8,8 +8,7 @@
   <dd><%= @shoe.title %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @shoe.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:photo) %>:</strong></dt>
-  <dd><%= image_tag @shoe.image.url.to_s %></dd>
+  <dt><%= image_tag @shoe.image_url(:thumb).to_s  %> </dt>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

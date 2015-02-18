@@ -1,10 +1,9 @@
-<%= simple_form_for @shoe, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :title %>
-  <%= error_span(@shoe[:title]) %>
-  <%= f.input :description %>
-  <%= error_span(@shoe[:description]) %>
+<h1> edit profile </h1>
+
+<%= simple_form_for @user,url: profile_path(@user), :html => { :class => 'form-horizontal' } do |f| %>
+
   <%= f.file_field :image, :class => 'btn btn-default' %>
-  <%= error_span(@shoe[:image]) %>
+  <%= error_span(@user[:image]) %>
 
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

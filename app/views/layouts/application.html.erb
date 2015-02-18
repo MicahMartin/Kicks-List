@@ -45,17 +45,20 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">KicksList</a>
+      <!-- <a class="navbar-brand" href="">KicksList</a> -->
+      <%= link_to "Kicks List", shoes_path, :class => 'navbar-brand' %>
       <div class="navbar-collapse collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav">
           <% if user_signed_in? %>
 
 
-          <li><%= link_to current_user.email, edit_user_registration_path, :class => 'navbar-link'  %></li>
+
+          <li><%= link_to "Profile", profile_path , :class => 'navbar-link'   %></li>
           <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
           <% else %>
           <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> </li>
           <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+
           <% end %>
       </ul>
       </div>
@@ -68,22 +71,25 @@
         <%= bootstrap_flash %>
         <%= yield %>
       </div>
+
       <% if user_signed_in? %>
-      <div class="col-lg-3">
+      <div class="col-lg-3 ">
         <div class="well sidebar-nav">
-          <h3>Side shit</h3>
+          <h3>Work Helper</h3>
           <ul class="nav nav-list">
-            <li class="nav-header">Your Shit</li>
-            <li><%= link_to "Shit", "/path1"  %></li>
-            <li><%= link_to "More Shit", "/path2"  %></li>
-            <li><%= link_to "Good Shit", "/path3"  %></li>
+            <li class="nav-header"></li>
+            <li><%= link_to "Tracked", "/path1"  %></li>
+            <li><%= link_to "Groups", "/path2"  %></li>
+            <li><%= link_to "Messages", "/path3"  %></li>
           </ul>
         </div><!--/.well -->
       </div><!--/span-->
       <% else %>
       <% end %>
-    </div><!--/row-->
-
+      </div><!--/row-->
+      <% if user_signed_in? %>
+      <%= link_to "Back", :back %>
+      <% end %>
     <footer>
       <p>&copy; Kai, the chosen one. Like Neo. 1996-2015</p>
     </footer>
