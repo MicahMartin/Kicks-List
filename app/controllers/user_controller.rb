@@ -10,6 +10,7 @@ class UserController < ApplicationController
   end
 
   def update
+    @user = User.find(current_user.id)
     respond_to do |format|
 
       if @user.update(user_params)
@@ -19,7 +20,7 @@ class UserController < ApplicationController
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
-      
+
     end
   end
 
@@ -27,7 +28,7 @@ class UserController < ApplicationController
 
 
   def user_params
-    params.require(:user).permit(:email,:image)
+    params.require(:user).permit(:image, :user_id)
   end
 
 end

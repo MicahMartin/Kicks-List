@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   :recoverable, :rememberable, :trackable, :validatable,
   :omniauthable, :omniauth_providers => [:facebook]
 
+  acts_as_mappable
   has_many :shoes
   mount_uploader :image, ImageUploader
 

@@ -1,5 +1,33 @@
-<div class="col-sm-4 form-group center">
+<div class = "container">
 
-<h1><%= @user.email%></h1> <%= link_to "Edit User Security","users/edit" %>
-<%= link_to "Edit Profile Page", "profile/edit" %>
+  <div class = "contianer">
+    <div class = "row">
+      <div class = "col-lg-3">
+        <%= image_tag @user.image_url(:profile).to_s  %>
+      </div>
+      <div class = "col-lg-6 ">
+        <h1><%= @user.email%></h1> <%= link_to "Edit User Security","users/edit" %>
+        <%= link_to "Edit Profile Page", "user/edit" %>
+      </div>
+    </div>
+
+    <div class= "row">
+      <div class = "container">
+        <div class = "col-lg-6 center">
+
+          <% @user.shoes.each do |shoe| %>
+
+          <dl class="dl-vertical">
+
+            <dd><%= shoe.title %></dd>
+            <dd><%= shoe.description %></dd>
+            <dt><%= image_tag shoe.image_url(:thumb).to_s %> </dt>
+          </dl>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+
+</div>
 </div>

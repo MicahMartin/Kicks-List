@@ -5,10 +5,13 @@ Rails.application.routes.draw do
     root :to => 'user#show', as: "authenticated_root"
   end
   resources :shoes
-  get "profile" => 'user#show', :as => 'profile'
-  get "profile/edit" => 'user#edit', :as => 'editprofile'
-  get "users" => 'user#show', :as =>'profileb'
-  put "profile" => 'user#edit', :as => 'updateprofile'
+  resources :user
+  # get "profile" => 'user#show', :as => 'profile'
+  # get "profile/edit" => 'user#edit', :as => 'edit_profile'
+  # get "users" => 'user#show', :as =>'profileb'
+  # patch "profile/edit" => 'user#update'
+  # put "profile/edit" => 'user#update'
+
   get "home" => 'home#index', :as => 'home'
 
   root :to => 'home#index'
