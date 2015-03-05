@@ -1,5 +1,4 @@
 <div class = "container">
-
   <div class = "contianer">
     <div class = "row">
       <div class = "col-lg-3">
@@ -16,9 +15,7 @@
         <div class = "col-lg-6 center">
 
           <% @user.shoes.each do |shoe| %>
-
           <dl class="dl-vertical">
-
             <dd><%= shoe.title %></dd>
             <dd><%= shoe.description %></dd>
             <dt><%= image_tag shoe.image_url(:thumb).to_s %> </dt>
